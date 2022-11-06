@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* border: solid red 1px; */
+}
+
+/*! Inicio estilo moneda*/
+.moneda {
+  display: flex;
+  margin-top: 10%;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+  transform: perspective(500px) rotateY(180deg);
+  transition-property: transform;
+  transition-duration: 2s;
+}
+
+.moneda div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transition: 1s;
+}
+
+/* .moneda .sellofront {
+  transform: perspective(500px) rotateY(0deg);
+}*/
+
+.moneda .caraback {
+  transform: perspective(500px) rotateY(180deg);
+}
+
+/* .moneda:hover .sellofront1 {
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.moneda:hover .caraback1 {
+  transform: perspective(500px) rotateY(360deg);
+} */
+
+/* .moneda .sellofront1 {
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.moneda .caraback1 {
+  transform: perspective(500px) rotateY(360deg);
+}
+
+.moneda .sellofront3 {
+  transform: perspective(500px) rotateY(-450deg);
+}
+
+.moneda .caraback3 {
+  transform: perspective(500px) rotateY(-180deg);
+} */
+
+/*! Fin estilo moneda*/
+
+/*Estilo formulario*/
+.nav {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+.titulo {
+  font-size: 4em;
+}
+
+.contenedor {
+  display: flex;
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  color: rgb(225, 225, 225);
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
