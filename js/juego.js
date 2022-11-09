@@ -1,51 +1,94 @@
 /*! Moneda*/
 const moneda = document.querySelector(".moneda");
-const sellofront = document.querySelector(".sellofront");
-const caraback = document.querySelector(".caraback");
+const time = 2;
+let juego = document.getElementById("jugar");
+let ganancia = 0;
+let perdida = 0;
+let contador = 0;
+let total = 0;
+let apuesta = 0;
+let sello = 0;
+let cara = 0;
+juego.addEventListener("click", lanzamiento);
+function lanzamiento() {
+  /*Inicio Moneda*/
+  moneda.style.transition = "";
+  moneda.style.transform = `translateY(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
 
-moneda.addEventListener("click", () => {
-  sellofront.classList.remove("sellofront");
-  caraback.classList.remove("caraback");
+  setTimeout(() => {
+    moneda.style.transition = `transform ${time}s`;
+    const random = Math.floor(Math.random() * 2 + 1);
+    contador++;
+    let s = document.querySelector(".seleccion");
+    let m = document.getElementById("monto");
+    console.log(random);
+    let seleccion = parseInt(s.value);
 
-  const ramdom = Math.floor(Math.random() * 2) + 1;
+    console.log(seleccion);
+    let monto = parseInt(m.value);
 
-  console.log(ramdom);
+    if ((random == 1 && seleccion == 1) || (random == 1 && seleccion == 2)) {
+      moneda.style.transform = `translateY(400px) rotateX(3600deg) rotateY(3600deg) rotateZ(3600deg)`;
+      // moneda.style.transform = `translateY(400px) rotateX(3600deg) rotateY(3600deg) rotateZ(3600deg)`;
+      setTimeout(function () {
+        if (random === seleccion) {
+          total += monto * 2;
+          alert(
+            `La seleccion de la maquina es sello, ha ganado ${
+              monto * 2
+            }, el monto que tiene en total es: ${total}`
+          );
+        } else {
+          total -= monto;
+          alert(
+            `La seleccion de la maquina es sello , ha perdido ${monto}, el monto que tiene en total es: ${total}`
+          );
+        }
+      }, 2000);
+      sello++;
+    } else if (
+      (random == 2 && seleccion == 2) ||
+      (random == 2 && seleccion == 1)
+    ) {
+      moneda.style.transform = `translateY(400px) rotateX(3600deg) rotateY(1980deg) rotateZ(3600deg)`;
 
-  if (ramdom == 1) {
-    moneda.classList.add("caraback1");
-  } else if (ramdom == 2) {
-    moneda.classList.add("sellofront1");
-  }
-});
+      setTimeout(function () {
+        if (random === seleccion) {
+          total += monto * 2;
+          alert(
+            `La seleccion de la maquina es cara, ha ganado ${
+              monto * 2
+            }, el monto que tiene en total es: ${total}`
+          );
+        } else {
+          total -= monto;
+          alert(
+            `La seleccion de la maquina es cara, ha perdido ${monto}, el monto que tiene en total es: ${total}`
+          );
+        }
+      }, 2000);
+      cara++;
+    }
 
-/*! Fin moneda*/
+    setTimeout(actualizarPC, 2000);
+  }, time * 10);
+}
 
-// let m = document.getElementById("monto");
-// let s = document.getElementById("seleccion");
-// let juego = document.getElementById("jugar");
+function actualizarPC() {
+  document.querySelector(".dinero").textContent = `Dinero: ${total}`;
+  document.querySelector(
+    ".cantidad_veces"
+  ).textContent = `Veces jugadas: ${contador}`;
+}
 
-// juego.addEventListener("click", () => {
-//   let seleccion = s.value;
-//   let monto = m.value;
+function finalizar() {
+  alert(
+    `El resumen de la partida fue: Veces jugadas: ${cont}, total de dinero acomulado durante la partida: ${total}`
+  ).then((result) => {
+    window.location.href = "index.html";
+  });
+}
 
-//   for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
-//   }
-//   if (seleccion == 1 && ramdom == 1) {
-//     alert(`La maquina ha seleccionado cara`);
-//     let ganancia = 0;
-//     ganancia = ganancia + monto * 2;
+let finalizarJuego = document.querySelector(".finalizar");
 
-//     alert(`El monto que lleva hasta el momento es ${ganancia}`);
-//   } else if (seleccion == 2 && ramdom == 2) {
-//     alert(`La maquina ha seleccionado sello`);
-//     let ganancia = 0;
-//     ganancia = ganancia + monto * 2;
-
-//     alert(`El monto que lleva hasta el momento es ${ganancia}`);
-//   } else {
-//     alert("Ha perdido");
-//     let perdida = 0;
-//     perdida = perdida - monto;
-//   }
-// });
+finalizarJuego.addEventListener("click", finalizar);

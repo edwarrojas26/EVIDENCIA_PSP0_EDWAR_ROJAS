@@ -8,46 +8,52 @@
 </head>
 
 <body>
+
     <nav class="nav">
-        <h1 class="titulo"><b>Cara y sello</b></h1>
+        <h1 class="titulo">Cara y sello</h1>
     </nav>
 
-    <div class="moneda">
-        <div class="sellofront">
-            <img src="img/Imagen1.png" alt="sello">
-        </div>
-        <div class="caraback">
-            <img src="img/Imagen2.png" alt="cara">
-        </div>
-    </div>
 
+    <!-- FORMULARIO -->
 
-
-
-    <!-- <div class="contenedor">
-
-        
-
+    <div class="formulario">
         <div>
-            <label for="">Monto</label>
+            <div class="dinero">Dinero: 0</div>
+            <div class="cantidad_veces">Veces jugadas:0 </div>
+        </div>
+
+        <div class="Apuesta">
+            <label for="">Dinero a apostar</label>
             <input type="text" name="monto" id="monto">
-        </div><br>
+            </divc>
 
-        <div>
-            <label for="">Apuesta</label>
+            <div class="opcion">
+                <label for="">Apuesta</label>
+                <select name="" class="seleccion">
+                    <option>Seleccionar...</option>
+                    <option value="1">Sello</option>
+                    <option value="2">Cara</option>
+                </select>
 
-            <select name="" id="seleccion">
-                <option value="">Seleccionar...</option>
-                <option value="1">Cara</option>
-                <option value="2">Sello</option>
-            </select>
+            </div><br>
 
-        </div><br>
+            <input type="submit" value="Enviar" id="jugar">
+            <a href="index.html"><input class="finalizar" type="submit" value="Finalizar Juego"></a>
 
-        <input type="submit" value="Enviar" id="jugar">
-    </div> -->
 
-<script src="js/juego.js"></script>
+        </div>
+
+        <!-- FIN FORMULARIO -->
+
+        <!-- MONEDA -->
+        <div class="moneda">
+            <div class="moneda-face sellofront"><img src="img/Imagen1.png" alt=""></div>
+            <div class="moneda-face caraback"><img src="img/Imagen2.png" alt=""></div>
+        </div>
+
+        <!-- FIN DE MONEDA -->
+
+        <script src="js/juego.js"></script>
 </body>
 
 </html>
